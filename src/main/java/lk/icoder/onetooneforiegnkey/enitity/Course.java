@@ -14,6 +14,7 @@ import static javax.persistence.CascadeType.ALL;
  * @Author DILAN on 5/25/2018
  */
 @Entity
+@NamedQuery(name = "Course.queryGetAllCourses", query = "select c from Course c")
 public class Course extends BaseEntity{
 
     @Id

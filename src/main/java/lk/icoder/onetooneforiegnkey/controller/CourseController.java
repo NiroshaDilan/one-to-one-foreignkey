@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -24,5 +25,10 @@ public class CourseController {
         Optional<Course> course = courseRepository.findById(1001L);
         course.get().setName("Dilan");
         courseRepository.save(course.get());
+    }
+
+    @GetMapping("/all")
+    public List<Course> getAll() {
+        return courseRepository.queryGetAllCourses();
     }
 }
